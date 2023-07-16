@@ -6,10 +6,27 @@ import { MdFavorite } from "react-icons/md";
 import { MdCompare } from "react-icons/md";
 import { MdAccountCircle } from "react-icons/md";
 import { AiTwotoneHome } from "react-icons/ai";
+import { RxCrossCircled } from "react-icons/rx";
+import { useEffect } from "react";
 
 import "./navbar.css";
 
 function Navbar() {
+  useEffect(() => {
+    const navContainer = document.getElementById("nav-container");
+    const hideButton = document.getElementById("hideButton");
+    const navToggler = document.getElementById("toggle-nav");
+
+    hideButton.addEventListener("click", () => {
+      navContainer.classList.add("hideNav");
+    });
+
+    navToggler.addEventListener("click", () => {
+      navContainer.classList.remove("hideNav");
+      navContainer.classList.add("showNav");
+    });
+  });
+
   return (
     <header>
       <div className="contact-info d-flex justify-content-center gap-5 fw-bold fs-5 align-items-center">
@@ -73,7 +90,7 @@ function Navbar() {
         <div className="container-fluid d-flex gap-3 px-5">
           <div className="collapse-item container-fluid">
             <div className="collapse-btn d-flex justify-content-center align-items-center">
-              <button className="navbar-toggler">
+              <button id="toggle-nav" className="navbar-toggler">
                 <span className="navbar-toggler-icon"></span>
               </button>
             </div>
@@ -105,11 +122,14 @@ function Navbar() {
               </div>
             </div>
           </div>
-          <div className="nav-container">
+          <div id="nav-container" className="nav-container">
             <ul className="nav-ul">
               <li className="nav-icon" href="#">
                 <div className="home-icon fs-2">
                   <AiTwotoneHome />
+                </div>
+                <div id="hideButton" className="collapse-icon fs-3">
+                  <RxCrossCircled className="crossIcon" />
                 </div>
               </li>
               <li>Laptop</li>

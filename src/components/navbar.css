@@ -24,6 +24,7 @@ nav .nav-ul > li {
 
 .collapse-item {
   display: none;
+  position: relative;
 }
 
 /* d-flex justify-content-center align-items-center gap-3 */
@@ -33,7 +34,21 @@ nav .nav-ul > li {
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  padding: 0;
 }
+
+.navbar .hideNav {
+  position: absolute;
+  left: -100%;
+  transition: all 0.4s ease;
+}
+.collapse-icon {
+  display: none;
+}
+
+/* =================================================================================================================== */
+
+/* Media Query */
 
 @media screen and (max-width: 991px) {
   /* d-flex justify-content-between */
@@ -41,10 +56,31 @@ nav .nav-ul > li {
     display: flex;
     justify-content: space-between;
   }
+
+  .collapse-icon {
+    display: block;
+  }
+
+  .nav-icon .collapse-icon .crossIcon:hover {
+    cursor: pointer;
+    transform: rotate(360deg);
+    transition: all 0.4s linear;
+  }
+
   .nav-container {
+    position: absolute;
+    left: -100vw;
+  }
+
+  .showNav {
+    position: absolute;
+    top: 15px;
     display: block;
     width: 70%;
+    left: 50px;
+    transition: all 0.3s ease-in-out;
   }
+
   .nav-container .nav-ul {
     display: flex;
     flex-direction: column;
@@ -61,5 +97,11 @@ nav .nav-ul > li {
     width: 100%;
     text-align: left;
     font-size: 12px;
+  }
+
+  .nav-container .nav-ul .nav-icon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
