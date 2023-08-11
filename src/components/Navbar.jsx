@@ -1,18 +1,54 @@
-<<<<<<< HEAD
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FaCartArrowDown } from "react-icons/fa";
-import { BsFillHeartFill } from "react-icons/bs";
-import { LuArrowLeftRight } from "react-icons/lu";
-import { BsPersonCircle } from "react-icons/bs";
+import { FaPhoneVolume } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
+import { FaShoppingCart } from "react-icons/fa";
+import { FiMail } from "react-icons/fi";
+import { MdFavorite } from "react-icons/md";
+import { MdAccountCircle } from "react-icons/md";
+import { MdCompare } from "react-icons/md";
+import { RxCrossCircled } from "react-icons/rx";
+import { AiTwotoneHome } from "react-icons/ai";
+
+import "./navbar.css";
 
 function Navbar() {
+  useEffect(() => {
+    const navContainer = document.getElementById("nav-container");
+    const hideButton = document.getElementById("hideButton");
+    const navToggler = document.getElementById("toggle-nav");
+
+    hideButton.addEventListener("click", () => {
+      navContainer.classList.add("hideNav");
+    });
+
+    navToggler.addEventListener("click", () => {
+      navContainer.classList.remove("hideNav");
+      navContainer.classList.add("showNav");
+    });
+  });
+
   return (
-    <div className="container-fluid">
-      <nav className="navbar bg-body-tertiary">
-        <div className="container-fluid">
-          <Link className="navbar-brand fs-1" to="/">
-            Comptech
-          </Link>
+    <header>
+      <div className="contact-info d-flex justify-content-center gap-5 fw-bold fs-5 align-items-center">
+        <div className="phone">
+          <span className="icon">
+            <FaPhoneVolume />
+          </span>
+          <span className="number"> +880 1608 686440</span>
+        </div>
+        <div className="email">
+          <span className="icon">
+            <FiMail />
+          </span>
+          <span className="number"> info@comptech.solutions</span>
+        </div>
+      </div>
+      <div className="d-none head container-fluid px-5 d-lg-flex justify-content-between align-items-center">
+        <div className="logo">
+          <h1>LOGO</h1>
+        </div>
+        <div className="search">
           <form className="d-flex" role="search">
             <input
               className="form-control me-2"
@@ -21,25 +57,45 @@ function Navbar() {
               aria-label="Search"
             />
             <button className="btn btn-outline-success" type="submit">
-              Search
+              <FaSearch />
             </button>
           </form>
-          <ul className="d-flex list-unstyled gap-3 fs-4">
-            <li className="icon1">
-              <FaCartArrowDown />
-            </li>
-            <li className="icon2">
-              <BsFillHeartFill />
-            </li>
-            <li className="icon3">
-              <LuArrowLeftRight />
-            </li>
-            <li className="icon4">
-              <BsPersonCircle />
-            </li>
-          </ul>
         </div>
-      </nav>
+        <div className="pc-builder">
+          <button type="button">PC Builder</button>
+        </div>
+        <div className="cart-fav-compare-account d-flex gap-3">
+          <div className="cart" title="Shopping Cart position-relative">
+            <div className="cart-icon fs-2">
+              <FaShoppingCart />
+              <span className="translate-middle badge rounded-pill bg-danger fs-6">
+                0
+              </span>
+            </div>
+          </div>
+          <div className="favorite">
+            <div className="fav-icon fs-2">
+              <MdFavorite />
+              <span className="translate-middle badge rounded-pill bg-danger fs-6">
+                0
+              </span>
+            </div>
+          </div>
+          <div className="compare">
+            <div className="compare-icon fs-2">
+              <MdCompare />
+              <span className="translate-middle badge rounded-pill bg-danger fs-6">
+                0
+              </span>
+            </div>
+          </div>
+          <div className="compare">
+            <div className="compare-icon fs-2">
+              <MdAccountCircle />
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="container">
         <ul className="nav">
           <li className="nav-item">
@@ -103,96 +159,6 @@ function Navbar() {
             </Link>
           </li>
         </ul>
-      </div>
-    </div>
-=======
-import { FaPhoneVolume } from "react-icons/fa";
-import { FiMail } from "react-icons/fi";
-import { FaSearch } from "react-icons/fa";
-import { FaShoppingCart } from "react-icons/fa";
-import { MdFavorite } from "react-icons/md";
-import { MdCompare } from "react-icons/md";
-import { MdAccountCircle } from "react-icons/md";
-import { AiTwotoneHome } from "react-icons/ai";
-import { RxCrossCircled } from "react-icons/rx";
-import { useEffect } from "react";
-
-import "./navbar.css";
-
-function Navbar() {
-  useEffect(() => {
-    const navContainer = document.getElementById("nav-container");
-    const hideButton = document.getElementById("hideButton");
-    const navToggler = document.getElementById("toggle-nav");
-
-    hideButton.addEventListener("click", () => {
-      navContainer.classList.add("hideNav");
-    });
-
-    navToggler.addEventListener("click", () => {
-      navContainer.classList.remove("hideNav");
-      navContainer.classList.add("showNav");
-    });
-  });
-
-  return (
-    <header>
-      <div className="contact-info d-flex justify-content-center gap-5 fw-bold fs-5 align-items-center">
-        <div className="phone">
-          <span className="icon">
-            <FaPhoneVolume />
-          </span>
-          <span className="number"> +880 1608 686440</span>
-        </div>
-        <div className="email">
-          <span className="icon">
-            <FiMail />
-          </span>
-          <span className="number"> info@comptech.solutions</span>
-        </div>
-      </div>
-      <div className="d-none head container-fluid px-5 d-lg-flex justify-content-between align-items-center">
-        <div className="logo">
-          <h1>LOGO</h1>
-        </div>
-        <div className="search">
-          <input type="search" name="search" id="search" />
-          <FaSearch />
-        </div>
-        <div className="pc-builder">
-          <button type="button">PC Builder</button>
-        </div>
-        <div className="cart-fav-compare-account d-flex gap-3">
-          <div className="cart" title="Shopping Cart position-relative">
-            <div className="cart-icon fs-2">
-              <FaShoppingCart />
-              <span className="translate-middle badge rounded-pill bg-danger fs-6">
-                0
-              </span>
-            </div>
-          </div>
-          <div className="favorite">
-            <div className="fav-icon fs-2">
-              <MdFavorite />
-              <span className="translate-middle badge rounded-pill bg-danger fs-6">
-                0
-              </span>
-            </div>
-          </div>
-          <div className="compare">
-            <div className="compare-icon fs-2">
-              <MdCompare />
-              <span className="translate-middle badge rounded-pill bg-danger fs-6">
-                0
-              </span>
-            </div>
-          </div>
-          <div className="compare">
-            <div className="compare-icon fs-2">
-              <MdAccountCircle />
-            </div>
-          </div>
-        </div>
       </div>
       <nav className="navbar">
         <div className="container-fluid d-flex gap-3 px-5">
@@ -260,7 +226,7 @@ function Navbar() {
         </div>
       </nav>
     </header>
->>>>>>> df7c9b00a5cbb1d33d83c7c3004f7fdf0768f37e
   );
 }
+
 export default Navbar;
