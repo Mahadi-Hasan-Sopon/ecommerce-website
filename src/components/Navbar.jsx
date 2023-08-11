@@ -48,7 +48,7 @@ function Navbar() {
         <Link className="logo" to="/ecommerce-website">
           <h1>CSL</h1>
           <img
-            src="/assets/images/ecommerce-favicom.svg"
+            src="assets/images/ecommerce-favicom.svg"
             alt=""
           />
         </Link>
