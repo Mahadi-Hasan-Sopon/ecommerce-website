@@ -102,7 +102,7 @@ function Navbar() {
             <Link
               className="nav-link fw-semibold active"
               aria-current="page"
-              to="/ecommerce-website"
+              to="/"
             >
               Home
             </Link>
@@ -110,7 +110,7 @@ function Navbar() {
           <li className="nav-item">
             <Link
               className="nav-link fw-semibold"
-              to="/ecommerce-website/addproduct"
+              to="/addproduct"
             >
               Add Product
             </Link>

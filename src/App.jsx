@@ -15,10 +15,10 @@ function App() {
       <div className="App">
         <Routes>
           {/* <Route exact path="/" element={<FetchAPI />} /> */}
-          <Route exact path="/ecommerce-website" element={<ProductsList />} />
+          <Route exact path="/" element={<ProductsList />} />
           <Route
             exact
-            path="/ecommerce-website/addproduct"
+            path="/addproduct"
             element={<AddProduct />}
           />
           {/* <Route exact path="/posts/:postId" component={SinglePostPage} /> */}

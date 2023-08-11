@@ -31,7 +31,7 @@ const AddProduct = () => {
     dispatch(
       productAdded({ title, description, category, price, image, rating })
     );
-    navigate("/ecommerce-website");
+    navigate("/");
   };
   return (
     <section className="container my-5">
