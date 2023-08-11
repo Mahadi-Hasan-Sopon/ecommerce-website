@@ -45,9 +45,13 @@ function Navbar() {
         </div>
       </div>
       <div className="d-none head container-fluid px-5 d-lg-flex justify-content-between align-items-center">
-        <div className="logo">
-          <h1>LOGO</h1>
-        </div>
+        <Link className="logo" to="/ecommerce-website">
+          <h1>CSL</h1>
+          <img
+            src="/assets/images/ecommerce-favicom.svg"
+            alt=""
+          />
+        </Link>
         <div className="search">
           <form className="d-flex" role="search">
             <input
@@ -102,7 +106,7 @@ function Navbar() {
             <Link
               className="nav-link fw-semibold active"
               aria-current="page"
-              to="/"
+              to="/ecommerce-website"
             >
               Home
             </Link>
@@ -110,7 +114,7 @@ function Navbar() {
           <li className="nav-item">
             <Link
               className="nav-link fw-semibold"
-              to="/addproduct"
+              to="/ecommerce-website/addproduct"
             >
               Add Product
             </Link>

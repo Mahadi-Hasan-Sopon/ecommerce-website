@@ -23,6 +23,7 @@ const AddProduct = () => {
   const onRatingChange = (e) => setRating(e.target.value);
   const handleCategoryChange = (e) => setCategory(e.target.value);
   console.log(title, description, category, price, image, rating);
+
   const onSaveProductClicked = (e) => {
     e.preventDefault();
     if (!title && !description && !price)
@@ -31,8 +32,9 @@ const AddProduct = () => {
     dispatch(
       productAdded({ title, description, category, price, image, rating })
     );
-    navigate("/");
+    navigate("/ecommerce-website");
   };
+  
   return (
     <section className="container my-5">
       <h2>Add a New Product</h2>
