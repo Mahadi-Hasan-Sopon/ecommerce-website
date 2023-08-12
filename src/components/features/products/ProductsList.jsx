@@ -8,6 +8,8 @@ function ProductsList() {
     <div className="container">
       <div className="row">
         {products.map((product) => {
+          const productRoute = `${product.category.split(" ").join("-")}/${product.title.split(" ").join("-")}`;
+
           return (
             <div
               className="single-product col-lg-2 col-md-3 col-sm-4 col-6 p-2"
@@ -15,7 +17,7 @@ function ProductsList() {
             >
               <div className="product h-100">
                 <div className="image-box m-2">
-                  <Link to={`${product.category}/${product.title}`}>
+                  <Link to={productRoute}>
                     <img
                       className="img-fluid rounded"
                       src={product.image}
@@ -24,13 +26,15 @@ function ProductsList() {
                   </Link>
                 </div>
                 <div className="card-body text-center m-2">
-                  <Link to={`${product.category}/${product.title}`}>
-                    <h6> {product.category} </h6>
-                    <p>{product.title.substring(0, 40)}...</p>
+                    <div>
+                    <Link className="fs-6 fw-bold" to={`${product.category.split(" ").join("-")}`}>
+                       {product.category} 
+                    </Link>
+                    </div>
+                    <Link to={productRoute}>{product.title.length > 40 ? `${product.title.substring(0, 40)}...` : product.title}</Link>
                     <p>
                       <b> TK {product.price} </b>
                     </p>
-                  </Link>
                 </div>
               </div>
             </div>

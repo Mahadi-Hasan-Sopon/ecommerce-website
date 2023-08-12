@@ -7,25 +7,8 @@ const productsSlice = createSlice({
     initialState,
     reducers: {
       productAdded(state, action) {
-        console.log(action.payload)
             state.push(action.payload);
         },
-        /**
-         * postAdded: {
-      reducer(state, action) {
-        state.push(action.payload)
-      },
-      prepare(title, content) {
-        return {
-          payload: {
-            id: nanoid(),
-            title,
-            content,
-          },
-        }
-      },
-    },
-         */
     },
 });
 

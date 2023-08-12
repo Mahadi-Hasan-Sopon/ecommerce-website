@@ -4,13 +4,14 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { productAdded } from "./productsSlice";
 import { useNavigate } from "react-router-dom";
+import { nanoid } from "@reduxjs/toolkit";
 
 const AddProduct = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [image, setImage] = useState("");
-  const [category, setCategory] = useState("noncategorized");
+  const [category, setCategory] = useState('noncategorized');
   const [rating, setRating] = useState("");
 
   const dispatch = useDispatch();
@@ -22,7 +23,7 @@ const AddProduct = () => {
   const onImageChanged = (e) => setImage(e.target.value);
   const onRatingChange = (e) => setRating(e.target.value);
   const handleCategoryChange = (e) => setCategory(e.target.value);
-  console.log(title, description, category, price, image, rating);
+
 
   const onSaveProductClicked = (e) => {
     e.preventDefault();
@@ -30,8 +31,9 @@ const AddProduct = () => {
       return alert("Enter Products details");
     //category, title, description, price, image, rating
     dispatch(
-      productAdded({ title, description, category, price, image, rating })
+      productAdded({ id: nanoid(), title, description, category, price, image, rating })
     );
+    
     navigate("/ecommerce-website");
   };
   
@@ -45,7 +47,7 @@ const AddProduct = () => {
           className="form-select form-select-lg mb-3"
           aria-label="Large select example"
         >
-          <option>Select Category</option>
+          <option >Select Category</option>
           <option value="men's clothing">men's clothing</option>
           <option value="jewelry">jewelry</option>
           <option value="electronics">electronics</option>

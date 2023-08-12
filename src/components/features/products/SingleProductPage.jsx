@@ -8,7 +8,7 @@ rating: {rate: 3.9, count: 120}
 title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops"
 */
 
-function SingleProductPage(product) {
+function SingleProductPage() {
     return <div>SingleProductPage</div>;
 }
 export default SingleProductPage;
