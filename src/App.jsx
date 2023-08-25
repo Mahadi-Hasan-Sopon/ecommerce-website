@@ -7,6 +7,7 @@ import "./App.css";
 import AddProduct from "./components/features/products/addProduct";
 
 import "./App.css";
+import SingleProductPage from "./components/features/products/SingleProductPage";
 
 function App() {
   return (
@@ -21,7 +22,8 @@ function App() {
             path="/ecommerce-website/addproduct"
             element={<AddProduct />}
           />
-          {/* <Route exact path="/posts/:postId" component={SinglePostPage} /> */}
+          <Route path="/:categorySlug/:titleSlug" element={<SingleProductPage/>} />
+          {/* <Route exact path="/posts/:postId" element={SinglePostPage} /> */}
         </Routes>
       </div>
     </Router>

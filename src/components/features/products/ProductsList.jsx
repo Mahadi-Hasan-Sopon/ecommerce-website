@@ -8,7 +8,12 @@ function ProductsList() {
     <div className="container">
       <div className="row">
         {products.map((product) => {
-          const productRoute = `${product.category.split(" ").join("-")}/${product.title.split(" ").join("-")}`;
+         
+          const categorySlug = product.category.split(" ").join("-");
+          const titleSlug = product.title.split(" ").join("-");
+          // const productRoute = `${product.category
+          //   .split(" ")
+          //   .join("-")}/${product.title.split(" ").join("-")}`;
 
           return (
             <div
@@ -17,7 +22,7 @@ function ProductsList() {
             >
               <div className="product h-100">
                 <div className="image-box m-2">
-                  <Link to={productRoute}>
+                  <Link to={`/${categorySlug}/${titleSlug}`}>
                     <img
                       className="img-fluid rounded"
                       src={product.image}
@@ -26,15 +31,22 @@ function ProductsList() {
                   </Link>
                 </div>
                 <div className="card-body text-center m-2">
-                    <div>
-                    <Link className="fs-6 fw-bold" to={`${product.category.split(" ").join("-")}`}>
-                       {product.category} 
+                  <div>
+                    <Link
+                      className="fs-6 fw-bold"
+                      to={`${product.category.split(" ").join("-")}`}
+                    >
+                      {product.category}
                     </Link>
-                    </div>
-                    <Link to={productRoute}>{product.title.length > 40 ? `${product.title.substring(0, 40)}...` : product.title}</Link>
-                    <p>
-                      <b> TK {product.price} </b>
-                    </p>
+                  </div>
+                  <Link to={`/${categorySlug}/${titleSlug}`}>
+                    {product.title.length > 40
+                      ? `${product.title.substring(0, 40)}...`
+                      : product.title}
+                  </Link>
+                  <p>
+                    <b> TK {parseFloat(product.price).toFixed(2)} </b>
+                  </p>
                 </div>
               </div>
             </div>

@@ -7,12 +7,13 @@ import { useNavigate } from "react-router-dom";
 import { nanoid } from "@reduxjs/toolkit";
 
 const AddProduct = () => {
+  const initRating = { rate: 0, count: 0 };
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [image, setImage] = useState("");
-  const [category, setCategory] = useState('noncategorized');
-  const [rating, setRating] = useState("");
+  const [category, setCategory] = useState("noncategorized");
+  const [rating, setRating] = useState(initRating);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -21,9 +22,11 @@ const AddProduct = () => {
   const onDescriptionChanged = (e) => setDescription(e.target.value);
   const onPriceChanged = (e) => setPrice(e.target.value);
   const onImageChanged = (e) => setImage(e.target.value);
-  const onRatingChange = (e) => setRating(e.target.value);
+  const onRatingChange = (e) =>
+    setRating({
+      rate: e.target.value, count: rating.count++
+    });
   const handleCategoryChange = (e) => setCategory(e.target.value);
-
 
   const onSaveProductClicked = (e) => {
     e.preventDefault();
@@ -31,12 +34,20 @@ const AddProduct = () => {
       return alert("Enter Products details");
     //category, title, description, price, image, rating
     dispatch(
-      productAdded({ id: nanoid(), title, description, category, price, image, rating })
+      productAdded({
+        id: nanoid(),
+        title,
+        description,
+        category,
+        price,
+        image,
+        rating,
+      })
     );
-    
+
     navigate("/ecommerce-website");
   };
-  
+
   return (
     <section className="container my-5">
       <h2>Add a New Product</h2>
@@ -47,7 +58,7 @@ const AddProduct = () => {
           className="form-select form-select-lg mb-3"
           aria-label="Large select example"
         >
-          <option >Select Category</option>
+          <option>Select Category</option>
           <option value="men's clothing">men's clothing</option>
           <option value="jewelry">jewelry</option>
           <option value="electronics">electronics</option>
@@ -120,7 +131,7 @@ const AddProduct = () => {
           </label>
           <input
             type="number"
-            value={rating}
+            value={rating.rate}
             onChange={onRatingChange}
             className="form-control"
             id="rating"
