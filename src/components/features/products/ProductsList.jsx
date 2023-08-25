@@ -8,7 +8,6 @@ function ProductsList() {
     <div className="container">
       <div className="row">
         {products.map((product) => {
-         
           const categorySlug = product.category.split(" ").join("-");
           const titleSlug = product.title.split(" ").join("-");
           // const productRoute = `${product.category
@@ -22,7 +21,7 @@ function ProductsList() {
             >
               <div className="product h-100">
                 <div className="image-box m-2">
-                  <Link to={`/${categorySlug}/${titleSlug}`}>
+                  <Link to={`/ecommerce-website/${categorySlug}/${titleSlug}`}>
                     <img
                       className="img-fluid rounded"
                       src={product.image}
@@ -39,7 +38,7 @@ function ProductsList() {
                       {product.category}
                     </Link>
                   </div>
-                  <Link to={`/${categorySlug}/${titleSlug}`}>
+                  <Link to={`/ecommerce-website/${categorySlug}/${titleSlug}`}>
                     {product.title.length > 40
                       ? `${product.title.substring(0, 40)}...`
                       : product.title}

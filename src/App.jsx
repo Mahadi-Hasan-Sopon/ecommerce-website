@@ -22,7 +22,7 @@ function App() {
             path="/ecommerce-website/addproduct"
             element={<AddProduct />}
           />
-          <Route path="/ecommerce-website/:categorySlug/:titleSlug" element={<SingleProductPage/>} />
+          <Route exact path="/ecommerce-website/:categorySlug/:titleSlug" element={<SingleProductPage/>} />
           {/* <Route exact path="/posts/:postId" element={SinglePostPage} /> */}
         </Routes>
       </div>
