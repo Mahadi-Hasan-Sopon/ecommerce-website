@@ -1,6 +1,3 @@
-
-
-
 export const initialState = [
   {
     id: 1,
@@ -268,5 +265,17 @@ export const initialState = [
       count: 145,
     },
   },
+  {
+    id: 21,
+    title: "POCO X3 Android Smart Mobile Phone",
+    price: 29999,
+    description: "Variant: Ram: 8GB, ROM: 128GB, Color: Blue",
+    category: "electronics",
+    image:
+      "https://images.pexels.com/photos/9422880/pexels-photo-9422880.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    rating: {
+      rate: 4.5,
+      count: 55,
+    },
+  },
 ];
-
